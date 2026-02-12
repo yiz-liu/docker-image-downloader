@@ -1,0 +1,18 @@
+name: Download Docker Image
+on: workflow_dispatch
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull Image
+        run: docker pull vllm/vllm-openai:v0.15.1-x86_64-cu130
+
+      - name: Save Image
+        run: docker save vllm/vllm-openai:v0.15.1-x86_64-cu130 | gzip > vllm-image.tar.gz
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vllm-image
+          path: vllm-image.tar.gz
+          retention-days: 1
