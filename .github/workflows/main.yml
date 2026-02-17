@@ -17,11 +17,11 @@ jobs:
           swap-storage: true
 
       - name: Pull Image
-        run: docker pull --platform linux/amd64 nvidia/cuda:13.1.1-cudnn-devel-ubuntu24.04
+        run: docker pull --platform linux/amd64 nvidia/cuda:13.0.2-cudnn-devel-ubuntu24.04
 
       - name: Save and Compress Image
         run: |
-          docker save nvidia/cuda:13.1.1-cudnn-devel-ubuntu24.04 | gzip > cuda-image.tar.gz
+          docker save nvidia/cuda:13.0.2-cudnn-devel-ubuntu24.04 | gzip > cuda-image.tar.gz
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
