@@ -17,15 +17,15 @@ jobs:
           swap-storage: true
 
       - name: Pull Image
-        run: docker pull vllm/vllm-openai:v0.15.1-x86_64-cu130
+        run: docker pull --platform linux/amd64 nvidia/cuda:13.1.1-cudnn-devel-ubuntu24.04
 
       - name: Save and Compress Image
         run: |
-          docker save vllm/vllm-openai:v0.15.1-x86_64-cu130 | gzip > vllm-image.tar.gz
+          docker save nvidia/cuda:13.1.1-cudnn-devel-ubuntu24.04 | gzip > cuda-image.tar.gz
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: vllm-image
-          path: vllm-image.tar.gz
+          name: cuda-image
+          path: cuda-image.tar.gz
           retention-days: 1
