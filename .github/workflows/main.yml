@@ -17,7 +17,7 @@ jobs:
           swap-storage: true
 
       - name: Pull Image
-        run: docker pull --platform linux/arm64 nvidia/cuda:13.0.2-cudnn-devel-ubuntu24.04
+        run: docker pull --platform linux/amd64/v4 nvidia/cuda:13.0.2-cudnn-devel-ubuntu24.04
 
       - name: Save and Compress Image
         run: |
