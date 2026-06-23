@@ -27,5 +27,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cuda
-          path: cuda-13.0.2-cudnn-devel-ubuntu24.04.tar.gz
+          path: cuda.tar.gz
           retention-days: 1
